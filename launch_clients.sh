@@ -6,7 +6,7 @@ TARGET_PROGRAM=$CONTAINER_DIR/client2.py
 
 while [ $i -lt ${#CLIENTS[@]} ]
 do
-    sudo docker run --privileged --network=host --cpus="${CPUS[$i]}" -v $LOCAL_DIR:$CONTAINER_DIR --name ${CLIENTS[$i]} -it -d djp/fl:latest python $TARGET_PROGRAM
+    sudo docker run --privileged --network=host --cpus="${CPUS[$i]}" -v $LOCAL_DIR:$CONTAINER_DIR --name ${CLIENTS[$i]} -it -d $IMAGE_NAME python $TARGET_PROGRAM
 
     i=`expr $i + 1`
 done
